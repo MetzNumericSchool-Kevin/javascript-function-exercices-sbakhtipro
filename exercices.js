@@ -24,11 +24,15 @@ salutations(nom_sorcier)
 // ---------------- ex 2 ----------------
 
 function tarifPotion(id_potion,inventaire,quantite_demandee=1) {
-    tarif = inventaire[0].prix * quantite_demandee
-    return console.log(`Le tarif pour ${quantite_demandee} potions ${id_potion} est ${tarif}`)
+    let tarif = inventaire[0].prix * quantite_demandee
+    return tarif
 }
 
-tarifPotion(inventaire[0].id,inventaire,3)
+let id_potion = inventaire[0].id
+let quantite_demandee = 3
+
+tarifPotion(id_potion,inventaire,quantite_demandee)
+console.log(`Le tarif pour ${quantite_demandee} potions ${id_potion} est ${tarif}`)
 
 // ---------------- ex 3 ----------------
 
@@ -46,4 +50,17 @@ inventaire.push(potion)
 console.log(inventaire)
 
 // ---------------- ex 4 ---------------
+
+function ajoutPotion(inventaire,potion) {
+    inventaire.forEach(item => {
+        if (potion.id===item.id) {
+            item.prix = potion.prix
+            item.stock = potion.stock
+        }
+        else {
+            inventaire.push(potion)
+        }
+    });
+    return inventaire
+}
 

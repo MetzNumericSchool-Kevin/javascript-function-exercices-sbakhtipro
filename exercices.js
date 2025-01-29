@@ -2,12 +2,12 @@ const nom_sorcier = "Archibald 🧙‍♂️";
 const manuel_de_fabrication = {
   potion_soin: {
     ingredients: ["eau_de_source", "ecaille_de_dragon", "poudre_de_diamant"],
-    temps_de_fabrication: 3, // exprimé en secondes
+    temps_de_fabrication: 3,
   },
 };
 const inventaire = [
   {
-    id: "potion_soin", // identifiant unique de la potion
+    id: "potion_soin",
     prix: 10,
     stock: 0,
   },
@@ -29,3 +29,21 @@ function tarifPotion(id_potion,inventaire,quantite_demandee=1) {
 }
 
 tarifPotion(inventaire[0].id,inventaire,3)
+
+// ---------------- ex 3 ----------------
+
+function fabricationPotion(id_potion,prix_potion=10,stock_potion=1) {
+    let potion = {
+        id: id_potion,
+        prix: prix_potion,
+        stock: stock_potion,
+    }
+    return potion
+}
+
+potion = fabricationPotion("potion_2",15,3)
+inventaire.push(potion)
+console.log(inventaire)
+
+// ---------------- ex 4 ---------------
+

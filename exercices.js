@@ -24,15 +24,22 @@ salutations(nom_sorcier)
 // ---------------- ex 2 ----------------
 
 function tarifPotion(id_potion,inventaire,quantite_demandee=1) {
-    let tarif = inventaire[0].prix * quantite_demandee
-    return tarif
+    inventaire.forEach(element => {
+		if (element.id===id_potion) {
+			tarif = inventaire[0].prix * quantite_demandee
+			console.log(`Le tarif pour ${quantite_demandee} potions ${id_potion} est ${tarif}`)
+			return tarif
+		}
+		else {
+			return console.log("La potion n'est pas dans l'inventaire.")
+		}
+    });
 }
 
-let id_potion = inventaire[0].id
+let id_potion = "potion_soin"
 let quantite_demandee = 3
 
 tarifPotion(id_potion,inventaire,quantite_demandee)
-console.log(`Le tarif pour ${quantite_demandee} potions ${id_potion} est ${tarif}`)
 
 // ---------------- ex 3 ----------------
 

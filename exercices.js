@@ -25,14 +25,14 @@ salutations(nom_sorcier)
 
 function tarifPotion(id_potion,inventaire,quantite_demandee=1) {
     inventaire.forEach(element => {
-		if (element.id===id_potion) {
-			tarif = inventaire[0].prix * quantite_demandee
-			console.log(`Le tarif pour ${quantite_demandee} potions ${id_potion} est ${tarif}`)
-			return tarif
-		}
-		else {
-			return console.log("La potion n'est pas dans l'inventaire.")
-		}
+        if (element.id===id_potion) {
+            tarif = element.prix * quantite_demandee
+            console.log(`Le tarif pour ${quantite_demandee} potions ${id_potion} est ${tarif}`)
+            return tarif
+        }
+        else {
+            return console.log("La potion n'est pas dans l'inventaire.")
+        }
     });
 }
 
@@ -70,4 +70,6 @@ function ajoutPotion(inventaire,potion) {
     });
     return inventaire
 }
+
+ajoutPotion()
 

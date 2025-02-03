@@ -5,7 +5,7 @@ const manuel_de_fabrication = {
     temps_de_fabrication: 3,
   },
 };
-const inventaire = [
+let inventaire = [
   {
     id: "potion_soin",
     prix: 10,
@@ -52,9 +52,7 @@ function fabricationPotion(id_potion,prix_potion=10,stock_potion=1) {
     return potion
 }
 
-potion = fabricationPotion("potion_2",15,3)
-inventaire.push(potion)
-console.log(inventaire)
+console.log(fabricationPotion("potion_2",15,3))
 
 // ---------------- ex 4 ---------------
 
@@ -62,14 +60,61 @@ function ajoutPotion(inventaire,potion) {
     inventaire.forEach(item => {
         if (potion.id===item.id) {
             item.prix = potion.prix
-            item.stock = potion.stock
+            item.stock+=potion.stock
+            return inventaire
         }
         else {
             inventaire.push(potion)
+            return inventaire
         }
     });
-    return inventaire
 }
 
-ajoutPotion()
+let potionAjoutee = {
+    id: "potion_3",
+    prix: 18,
+    stock: 2,
+}
 
+ajoutPotion(inventaire,potionAjoutee)
+console.log(inventaire)
+
+// ---------------- ex 5 ---------------
+
+function chercherPotionEnStock() {
+    let potionsEnStock = inventaire.filter(potion => potion.stock > 0)
+    return potionsEnStock
+}
+
+function chercherPotionPasEnStock() {
+    let potionsPasEnStock = inventaire.filter(potion => potion.stock === 0)
+    return potionsPasEnStock
+}
+
+console.log(chercherPotionEnStock())
+console.log(chercherPotionPasEnStock())
+console.log(inventaire)
+
+// ---------------- ex 6 ---------------
+
+// function fabricationPotionAvecIngredients(id_potion,ingredients,prix_potion=10,stock_potion=1) {
+//     manuel_de_fabrication[id_potion].ingredients.forEach(ingredient => {
+        
+//     });
+//     if (manuel_de_fabrication[id_potion].ingredients[0] === ingredients[0] && manuel_de_fabrication[id_potion].ingredients[1] === ingredients[1] && manuel_de_fabrication[id_potion].ingredients[2] === ingredients[2]) {
+//         potion = {
+//             id: id_potion,
+//             prix: prix_potion,
+//             stock: stock_potion,
+//         }
+//         return potion
+//     }
+//     else {
+//         return new Error('Il manque des ingrédients à cette potion')
+//     }
+// }
+
+// console.log(fabricationPotionAvecIngredients("potion_soin",["eau_de_source", "ecaille_de_dragon", "poudre_de_diamant"]))
+// console.log(fabricationPotionAvecIngredients("potion_soin",["eau_de_source", "poudre_de_diamant"]))
+
+console.log(document.body)

@@ -97,24 +97,65 @@ console.log(inventaire)
 
 // ---------------- ex 6 ---------------
 
+function fabricationPotionAvecIngredients(id_potion,ingredients,prix_potion=10,stock_potion=1) {
+    if (id_potion in manuel_de_fabrication && manuel_de_fabrication[id_potion].ingredients.length === ingredients.length) {
+        let test = []
+        manuel_de_fabrication.id_potion.forEach(element => {
+           if (element in ingredients) {
+            test.push(1)
+           }
+           else {
+            test.push(0)
+           }
+    })
+    if (!(test.includes(0))) {
+        return potion
+    }
+    else {
+        return new Error('Il manque des ingrédients à cette potion')
+    }
+}
+}
+
+console.log(fabricationPotionAvecIngredients("potion_soin",["eau_de_source", "ecaille_de_dragon", "poudre_de_diamant"]))
+console.log(fabricationPotionAvecIngredients("potion_soin",["eau_de_source", "poudre_de_diamant"]))
+
+console.log(document.body)
+
+
+
+
+
+
+
+
 // function fabricationPotionAvecIngredients(id_potion,ingredients,prix_potion=10,stock_potion=1) {
-//     manuel_de_fabrication[id_potion].ingredients.forEach(ingredient => {
+//     if (manuel_de_fabrication.hasOwnProperty(id_potion) && manuel_de_fabrication.id_potion.ingredients.length === ingredients.length) {
+//         manuel_de_fabrication.id_potion.forEach(element => {
+//         if ((element.id === id_potion) AND manuel_de_fabrication[]
         
 //     });
-//     if (manuel_de_fabrication[id_potion].ingredients[0] === ingredients[0] && manuel_de_fabrication[id_potion].ingredients[1] === ingredients[1] && manuel_de_fabrication[id_potion].ingredients[2] === ingredients[2]) {
-//         potion = {
-//             id: id_potion,
-//             prix: prix_potion,
-//             stock: stock_potion,
-//         }
-//         return potion
 //     }
-//     else {
-//         return new Error('Il manque des ingrédients à cette potion')
-//     }
+
+    
+//             if id_potion 
+//             manuel_de_fabrication[id_potion].ingredients.forEach(ingredient => {
+                
+//             });
+//             if (manuel_de_fabrication[id_potion].ingredients[0] === ingredients[0] && manuel_de_fabrication[id_potion].ingredients[1] === ingredients[1] && manuel_de_fabrication[id_potion].ingredients[2] === ingredients[2]) {
+//                 potion = {
+//                     id: id_potion,
+//                     prix: prix_potion,
+//                     stock: stock_potion,
+//                 }
+//                 return potion
+//             }
+//             else {
+//                 return new Error('Il manque des ingrédients à cette potion')
+//             }
 // }
 
 // console.log(fabricationPotionAvecIngredients("potion_soin",["eau_de_source", "ecaille_de_dragon", "poudre_de_diamant"]))
 // console.log(fabricationPotionAvecIngredients("potion_soin",["eau_de_source", "poudre_de_diamant"]))
 
-console.log(document.body)
+// console.log(document.body)
